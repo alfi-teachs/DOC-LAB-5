@@ -1,4 +1,4 @@
-# DOC-LAB-5
+# DOC-LAB-2
 Lab: How Containers Communicate
 1. Create Two Containers
 ```bash
