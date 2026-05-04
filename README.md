@@ -36,15 +36,23 @@ They communicate using internal IP
 
 now to install webserver change web page 
 
+1. Update system packages
 apt update
+
+2. Install vim (for editing files)
 apt install vim -y
 
-if nginx web path is  
+3. Go to nginx web directory
 cd /usr/share/nginx/html
+
+6. Check existing files
 ls
-remove all files
+
+7. Remove default files
 rm -rf *
-create index.html
+
+8. Create a new web page
+vim index.html
 
 ```bash
 <!DOCTYPE html>
@@ -114,22 +122,45 @@ create index.html
 
 
 ```
-copy in browser 
-localhost and hostportnumber 
-check if u can see web page
+9. Save and exit vim
+
+Press:
+
+ESC → :wq → Enter
+
+10. Restart nginx (to be safe)
+systemctl restart nginx
+
+11. Test in browser
+
+Open:
+
+localhost:hostportnumber
 -----------------------------------------------------------------------------------------------------------------
 
 if it in apache2
 
+1. Update system packages
 apt update
+
+2. Install vim (for editing files)
 apt install vim -y
 
-if nginx web path is  
+3. Go to nginx web directory
 cd /usr/local/apache2/htdocs
+
+6. Check existing files
+
 ls
-remove all files
+
+you see index.html
+
+7. Remove default files
 rm -rf *
-create index.html
+
+8. Create a new web page
+vim index.html
+
 
 ```bash
 <!DOCTYPE html>
@@ -199,8 +230,19 @@ create index.html
 ```
 
 
-copy in browser 
-localhost and hostportnumber 
-check if u can see web page
+9. Save and exit vim
+
+Press:
+
+ESC → :wq → Enter
+
+10. Restart nginx (to be safe)
+systemctl restart nginx
+
+11. Test in browser
+
+Open:
+
+localhost:hostportnumber
 
 
