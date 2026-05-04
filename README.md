@@ -1,35 +1,45 @@
 # DOC-LAB-5
 Lab: How Containers Communicate
 1. Create Two Containers
-
+```bash
 docker run -d -p 1000:80 httpd
+```
+```bash
 docker run -d -p 1010:80 nginx
-
+```
 3. Check Running Containers
+```bash
 docker ps
-
-4. Get Container IP
+```
+5. Get Container IP
+```bash
 docker inspect <container-id>
-
+```
 
 👉 Note the IP address (e.g., 172.17.0.3)
 
 4. Enter First Container
+```bash
 docker exec -it <container-id> /bin/bash
-
-5. Install ping inside container
+```
+6. Install ping inside container
+```bash
 apt update
+```
+```bash
 apt install iputils-ping -y
-
-6. Ping Other Container
+```
+8. Ping Other Container
+```bash
 ping <other-container-ip>
 
-
+```
 👉 If replies come → containers are communicating ✅
 
 7. Check Docker Networks
+```bash
 docker network ls
-
+```
 💡 Key Idea
 Both containers are on bridge network
 They communicate using internal IP
@@ -37,23 +47,29 @@ They communicate using internal IP
 now to install webserver change web page 
 
 1. Update system packages
+```bash
 apt update
-
-2. Install vim (for editing files)
+```
+3. Install vim (for editing files)
+```bash
 apt install vim -y
-
-3. Go to nginx web directory
+```
+5. Go to nginx web directory
+```bash
 cd /usr/share/nginx/html
-
-6. Check existing files
+```
+7. Check existing files
+```bash
 ls
-
-7. Remove default files
+```
+9. Remove default files
+```bash   
 rm -rf *
-
-8. Create a new web page
+```
+11. Create a new web page
+```bash
 vim index.html
-
+```
 ```bash
 <!DOCTYPE html>
 <html lang="en">
@@ -125,34 +141,39 @@ vim index.html
 9. Save and exit vim
 
 Press:
-
+```bash
 ESC → :wq → Enter
-
+```
 10. Restart nginx (to be safe)
+```bash
 systemctl restart nginx
-
-11. Test in browser
+```
+12. Test in browser
 
 Open:
-
+```bash
 localhost:hostportnumber
+```
 -----------------------------------------------------------------------------------------------------------------
 
 if it in apache2
 
 1. Update system packages
+```bash
 apt update
-
-2. Install vim (for editing files)
+```
+3. Install vim (for editing files)
+```bash
 apt install vim -y
-
-3. Go to nginx web directory
+```
+5. Go to nginx web directory
+```bash
 cd /usr/local/apache2/htdocs
-
-6. Check existing files
-
+```
+7. Check existing files
+```bash
 ls
-
+```
 you see index.html
 
 7. Remove default files
@@ -233,16 +254,17 @@ vim index.html
 9. Save and exit vim
 
 Press:
-
+```bash
 ESC → :wq → Enter
-
+```
 10. Restart nginx (to be safe)
-systemctl restart nginx
-
-11. Test in browser
+```bash
+systemctl restart httpd
+```
+12. Test in browser
 
 Open:
-
+```bash
 localhost:hostportnumber
-
+```
 
