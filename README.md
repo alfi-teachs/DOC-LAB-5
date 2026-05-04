@@ -158,6 +158,10 @@ localhost:hostportnumber
 
 if it in apache2
 
+Enter First Container
+```bash
+docker exec -it <container-id> /bin/bash
+```
 1. Update system packages
 ```bash
 apt update
